@@ -1,0 +1,35 @@
+:root { color-scheme: dark; background: #000; font-family: "Segoe UI", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #000; }
+video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000; }
+.waiting {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 20px;
+  color: #dbeafe;
+  background: radial-gradient(circle at center, #10203a, #020617 70%);
+}
+.waiting[hidden] { display: none; }
+.spinner {
+  width: 52px;
+  height: 52px;
+  border: 4px solid rgba(56, 189, 248, .18);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+.waiting strong { font-size: 24px; font-weight: 600; }
+.badge {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  padding: 9px 13px;
+  border-radius: 10px;
+  color: #dbeafe;
+  background: rgba(15, 23, 42, .82);
+  font-size: 13px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

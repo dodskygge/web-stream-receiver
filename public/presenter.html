@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Udostępnij ekran na odbiorniku</title>
+  <link rel="stylesheet" href="/presenter.css">
+</head>
+<body>
+  <main class="card">
+    <div class="brand" aria-hidden="true">TV</div>
+    <p class="eyebrow">LOKALNY ODBIORNIK</p>
+    <h1>Udostępnij ekran na odbiorniku</h1>
+    <p class="lead">Wybierz ekran lub okno. Transmisja pozostaje wyłącznie w sieci lokalnej.</p>
+
+    <div class="status" id="statusBox" data-state="connecting" role="status" aria-live="polite">
+      <span class="status-dot"></span>
+      <div>
+        <strong id="statusTitle">Łączenie z odbiornikiem…</strong>
+        <span id="statusDetail">To potrwa tylko chwilę.</span>
+      </div>
+    </div>
+
+    <label class="audio-option" id="audioOption">
+      <input type="checkbox" id="shareAudio">
+      <span>Udostępnij także dźwięk (jeśli przeglądarka na to pozwoli)</span>
+    </label>
+
+    <button class="primary" id="shareButton" type="button" disabled>
+      <span class="button-icon" aria-hidden="true">▣</span>
+      <span id="buttonLabel">Udostępnij ekran</span>
+    </button>
+    <button class="secondary" id="stopButton" type="button" hidden>Zakończ prezentację</button>
+
+    <p class="privacy">Bez konta · bez chmury · jedno aktywne połączenie</p>
+  </main>
+  <script src="/presenter.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+WEB-STREAM-RECEIVER - SZYBKI START
+===================================
+
+Skrypty uruchamiaj poleceniem:
+  powershell -ExecutionPolicy Bypass -File .\Setup\<skrypt>.ps1
+
+NA KOMPUTERZE ODBIORNIKA (raz)
+
+1. Ustaw staly adres IP (rezerwacja DHCP) i profil sieci "Prywatna".
+2. Jako ADMINISTRATOR: Setup\Configure-Firewall.ps1
+   (przed pierwszym uruchomieniem aplikacji).
+3. Zainstaluj web-stream-receiver-setup-1.0.0-x64.exe.
+   Jesli aplikacja sama sie uruchomi - zamknij ja.
+4. Na koncie, na ktorym ma dzialac aplikacja:
+   Setup\Configure-IpCertificate.ps1 -IpAddress <IP>
+   Jesli Windows zapyta o instalacje certyfikatu - kliknij "Tak".
+5. Uruchom web-stream-receiver. Dziala w tle, dashboard moze byc pod spodem.
+6. Opcjonalnie autostart: Setup\Set-Autostart.ps1 (wpisz Enable),
+   potem uruchom aplikacje ponownie.
+
+NA LAPTOPIE PREZENTERA - TYLKO PIERWSZY RAZ (jedna z metod)
+
+A. Polityka przegladarki (zalecane, bez certyfikatu):
+   OverrideSecurityRestrictionsOnInsecureOrigin = http://<IP>:8080
+   - laptopy w domenie: GPO,
+   - pozostale: plik .reg (admin) albo flaga przegladarki - patrz README.md.
+B. Certyfikat:
+   otworz http://<IP>:8080/install-certificate.cmd,
+   uruchom pobrany plik .cmd i kliknij "Tak".
+
+KAZDA PREZENTACJA
+
+1. Otworz http://<IP>:8080 w Chrome albo Edge.
+2. Kliknij "Udostepnij ekran" i wybierz ekran lub okno.
+3. Zakoncz przyciskiem "Zakoncz prezentacje" albo
+   "Przestan udostepniac" w przegladarce.
+
+"Odbiornik jest offline" - powtorz krok 4 na komputerze odbiornika i uruchom aplikacje ponownie.
+Awaryjne ukrycie obrazu na odbiorniku: Ctrl+Alt+Shift+Q
+
+Pelna instrukcja, wszystkie metody i diagnostyka: README.md

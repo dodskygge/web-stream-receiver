@@ -1,0 +1,57 @@
+{
+  "name": "web-stream-receiver",
+  "version": "1.0.0",
+  "description": "Lokalny odbiornik udostępniania ekranu WebRTC dla Windows",
+  "main": "src/main.js",
+  "author": "web-stream-receiver",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test --test-isolation=none test/*.test.js",
+    "build": "electron-builder --win nsis portable --x64",
+    "build:portable": "electron-builder --win portable --x64",
+    "pack": "electron-builder --dir --win --x64"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "local.webstream.receiver",
+    "productName": "web-stream-receiver",
+    "artifactName": "web-stream-receiver-setup-${version}-${arch}.${ext}",
+    "asar": true,
+    "npmRebuild": false,
+    "files": [
+      "src/**/*",
+      "public/**/*",
+      "vendor/**/*",
+      "package.json",
+      "LICENSE"
+    ],
+    "extraResources": [
+      {
+        "from": "scripts/Initialize-Certificate.ps1",
+        "to": "scripts/Initialize-Certificate.ps1"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "web-stream-receiver-${version}-${arch}-portable.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": true
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "publicHost": "192.168.2.104",
+  "httpPort": 8080,
+  "httpsPort": 8443,
+  "displayIndex": 0,
+  "autoStart": true,
+  "allowAudio": true
+}
